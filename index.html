@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Splitter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+        body {
+            background: linear-gradient(135deg, #ff7474 25%, transparent 25%) -16px 0/ 32px 32px, linear-gradient(225deg, rgba(255,116,116,0.5) 25%, transparent 25%) -16px 0/ 32px 32px, linear-gradient(315deg, #ff7474 25%, transparent 25%) 0 0/ 32px 32px, linear-gradient(45deg, rgba(255,116,116,0.5) 25%, #ff0000 25%) 0 0/ 32px 32px;
+            background-color: #ff0000;
+            color: white;
+          }
+          
+
+        .table-bordered {
+            background-color: gold;
+            color: white;
+        }
+
+        .table-bordered th,
+        .table-bordered td {
+            background-color: black;
+            color: gold;
+        }
+
+        .snowflake {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .snowflake span {
+            position: absolute;
+            top: -10px;
+            font-size: 2.5em;
+            color: white;
+            animation: fall 30s linear infinite;
+        }
+
+        .snowflake2 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .snowflake2 span {
+            position: absolute;
+            top: -10px;
+            font-size: 3.5em;
+            color: white;
+            animation: fall2 30s ease-in infinite;
+        }
+
+
+        @keyframes fall {
+            0% {
+                transform: translateX(100vw) translateY(0) rotate(0);
+                opacity: 1;
+            }
+
+            30% {
+                transform: translateX(-10vw) translateY(20vh) rotate(120deg);
+                opacity: 0.7;
+            }
+
+            60% {
+                transform: translateX(110vw) translateY(40vh) rotate(240deg);
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateX(0vw) translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fall2 {
+            0% {
+                transform: translateX(0vw) translateY(100vh) rotate(360deg);
+                opacity: 1;
+            }
+
+            30% {
+                transform: translateX(110vw) translateY(40vh) rotate(240deg);
+                opacity: 0.7;
+            }
+
+            60% {
+                transform: translateX(-10vw) translateY(20vh) rotate(120deg);
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateX(100vw) translateY(0) rotate(0);
+                opacity: 0;
+            }
+        }
+
+        .snowflake3 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .snowflake3 span {
+            position: absolute;
+            top: -10px;
+            font-size: 1.5em;
+            color: white;
+            animation: fall3 30s ease-out infinite;
+        }
+
+
+        @keyframes fall3 {
+            0% {
+                transform: translateX(50vw) translateY(0) rotate(0);
+                opacity: 1;
+            }
+
+            10% {
+                transform: translateX(-10vw) translateY(30vh) rotate(120deg);
+                opacity: 0.7;
+            }
+
+            90% {
+                transform: translateX(110vw) translateY(90vh) rotate(240deg);
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateX(0vw) translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .snowflake4 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .snowflake4 span {
+            position: absolute;
+            top: -10px;
+            font-size: 1.5em;
+            color: white;
+            animation: fall4 20s ease-in-out infinite;
+        }
+
+
+        @keyframes fall4 {
+            0% {
+                transform: translateX(0vw) translateY(100vh) rotate(360deg);
+                opacity: 1;
+            }
+
+            40% {
+                transform: translateX(100vw) translateY(30vh) rotate(120deg);
+                opacity: 0.5;
+            }
+
+            60% {
+                transform: translateX(0vw) translateY(90vh) rotate(240deg);
+                opacity: 1;
+            }
+
+            100% {
+
+                transform: translateX(50vw) translateY(0) rotate(0);
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="snow-container">
+        <span class="snow" style="--scale: 0.5; left: 10%; animation-duration: 8s;"></span>
+        <span class="snow" style="--scale: 0.8; left: 30%; animation-duration: 10s;"></span>
+        <span class="snow" style="--scale: 0.6; left: 50%; animation-duration: 12s;"></span>
+        <span class="snow" style="--scale: 1; left: 70%; animation-duration: 7s;"></span>
+        <span class="snow" style="--scale: 0.4; left: 90%; animation-duration: 15s;"></span>
+      </div>
+    <div class="snowflake">
+        <span>❄</span>
+        <span>❅</span>
+    </div>
+    <div class="snowflake2">
+        <span>❅</span>
+        <span>❄</span>
+    </div>
+    <div class="snowflake3">
+        <span>❄</span>
+        <span>❅</span>
+    </div>
+    <div class="snowflake4">
+        <span>❅</span>
+        <span>❄</span>
+    </div>
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Team Splitter</h1>
+
+        <div class="mb-4 d-flex">
+            <input type="text" id="playerName" class="form-control m-1" placeholder="Enter player name">
+            <button class="text-white btn btn-transparent" onclick="addPlayer()">Add Player</button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th colspan="3" class="text-center">Giocatori Inseriti</th>
+                    </tr>
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Rimuovi</th>
+                    </tr>
+                </thead>
+                <tbody id="playerTable" class="table-dark"></tbody>
+            </table>
+        </div>
+
+        <div id="teams" class="row g-3"></div>
+
+        <div class="mt-4 d-flex justify-content-center gap-2">
+            <button class="btn btn-success" onclick="splitTeams()">Generate Teams</button>
+            <button class="btn btn-warning" onclick="randomizeTeams()">Randomize Teams</button>
+        </div>
+    </div>
+
+    <script>
+        let players = [];
+        let playerId = 1;
+        let draggedElement = null;
+
+        function addPlayer() {
+            const input = document.getElementById('playerName');
+            const name = input.value.trim();
+            if (name) {
+                const player = { id: playerId++, name };
+                players.push(player);
+                input.value = '';
+                updatePlayerTable();
+            }
+        }
+
+        function updatePlayerTable() {
+            const playerTable = document.getElementById('playerTable');
+            playerTable.innerHTML = '';
+            players.forEach(player => {
+                const row = document.createElement('tr');
+
+                const idCell = document.createElement('td');
+                idCell.textContent = player.id;
+                row.appendChild(idCell);
+
+                const nameCell = document.createElement('td');
+                nameCell.textContent = player.name;
+                row.appendChild(nameCell);
+
+                const actionCell = document.createElement('td');
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.className = 'btn btn-sm btn-danger';
+                removeButton.onclick = () => removePlayer(player.id);
+                actionCell.appendChild(removeButton);
+                row.appendChild(actionCell);
+
+                playerTable.appendChild(row);
+            });
+        }
+
+        function removePlayer(id) {
+            players = players.filter(player => player.id !== id);
+            players.forEach((player, index) => {
+                player.id = index + 1;
+            });
+            playerId = players.length + 1;
+            updatePlayerTable();
+            splitTeams();
+        }
+
+        function splitTeams() {
+            const teamsContainer = document.getElementById('teams');
+            teamsContainer.innerHTML = '';
+            const shuffledPlayers = [...players];
+
+            for (let i = shuffledPlayers.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledPlayers[i], shuffledPlayers[j]] = [shuffledPlayers[j], shuffledPlayers[i]];
+            }
+
+            let teams = [];
+            for (let i = 0; i < shuffledPlayers.length; i += 3) {
+                let team = shuffledPlayers.slice(i, i + 3);
+                if (i + 3 >= shuffledPlayers.length && shuffledPlayers.length % 3 === 1) {
+                    teams[teams.length - 1].push(...team);
+                } else {
+                    teams.push(team);
+                }
+            }
+
+            teams.forEach((team, index) => createTeam(team, index + 1));
+        }
+
+        function createTeam(team, teamNumber) {
+            const teamsContainer = document.getElementById('teams');
+            const teamDiv = document.createElement('div');
+            teamDiv.className = 'col-md-4';
+
+            const card = document.createElement('div');
+            card.className = 'card';
+
+            const cardHeader = document.createElement('div');
+            cardHeader.className = 'card-header bg-dark text-white';
+            cardHeader.textContent = `Team ${teamNumber}`;
+            card.appendChild(cardHeader);
+
+            const listGroup = document.createElement('ul');
+            listGroup.className = 'list-group list-group-flush';
+
+            team.forEach(player => {
+                const listItem = document.createElement('li');
+                listItem.className = 'list-group-item';
+                listItem.textContent = `${player.id} - ${player.name}`;
+
+                listItem.draggable = true;
+                listItem.addEventListener('dragstart', e => {
+                    draggedElement = e.target;
+                    e.target.classList.add('bg-warning');
+                });
+
+                listItem.addEventListener('dragover', e => e.preventDefault());
+
+                listItem.addEventListener('drop', e => {
+                    e.preventDefault();
+                    if (draggedElement !== e.target) {
+                        const temp = draggedElement.textContent;
+                        draggedElement.textContent = e.target.textContent;
+                        e.target.textContent = temp;
+                    }
+                });
+
+                listItem.addEventListener('dragend', e => {
+                    e.target.classList.remove('bg-warning');
+                });
+
+                listGroup.appendChild(listItem);
+            });
+
+            card.appendChild(listGroup);
+            teamDiv.appendChild(card);
+            teamsContainer.appendChild(teamDiv);
+        }
+
+        function randomizeTeams() {
+            splitTeams();
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
